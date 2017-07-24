@@ -1,0 +1,7 @@
+
+.project
+*.prefs
+smothers/.classpath
+matrix-generators/.classpath
+input-parser/.classpath
+datatypes/.classpath
