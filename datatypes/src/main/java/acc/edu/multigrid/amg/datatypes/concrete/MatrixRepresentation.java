@@ -12,7 +12,7 @@ import acc.edu.multigrid.amg.datatypes.types.ValueKey;
 
 
 
-
+@Deprecated
 public class MatrixRepresentation implements Datatype{
 //	private Map<Integer,Set<Integer>> flagMap = null;
 	private ArrayList<Set<Integer>> flagArray = null;

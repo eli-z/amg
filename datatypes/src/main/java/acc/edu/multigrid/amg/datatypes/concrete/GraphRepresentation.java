@@ -15,10 +15,9 @@ import acc.edu.multigrid.amg.datatypes.types.ValueKey;
 
 
 
-
+@Deprecated
 public class GraphRepresentation implements Datatype{
 	private static Logger logger = LogManager.getLogger(GraphRepresentation.class);
-//	private Map<Integer,Set<Integer>> flagMap = null;
 	private ArrayList<Set<Integer>> flagArray = null;
 	private int[] diagonalArray;
 	private Map<ValueKey, Double> valueMap = null;

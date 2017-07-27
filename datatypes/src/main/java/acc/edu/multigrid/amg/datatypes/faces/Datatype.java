@@ -1,5 +1,5 @@
 package acc.edu.multigrid.amg.datatypes.faces;
-
+@Deprecated
 public interface Datatype {
 	public static final Integer one = 1;
 	public static final Integer minusone = -1;

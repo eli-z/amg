@@ -8,24 +8,81 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import acc.edu.multigrid.amg.datatypes.concrete.GraphRepresentation;
+import acc.edu.multigrid.amg.datatypes.concrete.MatrixRepresentation;
 import acc.edu.multigrid.amg.datatypes.faces.Datatype;
+import acc.edu.multigrid.amg.datatypes.faces.SparseMatrix;
+import acc.edu.multigrid.amg.datatypes.factory.DatatypeFactory;
+import acc.edu.multigrid.amg.datatypes.types.MatrixEntry;
+import acc.edu.multigrid.amg.datatypes.types.MatrixEntryWithPosition;
+import acc.edu.multigrid.amg.datatypes.types.MatrixInformation;
 
 
 
 public class MMInputParser{
 	private static Logger logger = LogManager.getLogger(MMInputParser.class);
-	public Datatype parseInputFormURI(URI uri) {
+/*	public Datatype parseInputFormURI(URI uri) {
 		return parseInputFormPath(Paths.get(uri));
 	}
-
+*/
+	public SparseMatrix parseInputFromURI(URI uri){
+		return parseInputFormPath(Paths.get(uri));
+	}
 	
-	public Datatype parseInputFormPath(Path path)
+	
+	public SparseMatrix parseInputFormPath(Path path)
+	{
+		logger.info("Starting input parsing for file " + path.toFile().getAbsolutePath());
+		MatrixInformation result = preparse(path);
+		if(result != null)
+			try(Stream<String> lines = Files.lines(path)){
+				String dataLine = result.getRows() + " " + result.getColumns() + " " + result.getValues();
+				Stream<MatrixEntry> matrixEntries = lines.filter(line -> !line.startsWith("%") && !line.equals(dataLine)).map(line -> {
+					String[] split = line.trim().split(" ");
+					try{
+						return new MatrixEntry(Integer.valueOf(split[0]),
+								Integer.valueOf(split[1]),
+								split.length == 2 ? 1d : Double.parseDouble(split[2]));
+					}catch(IndexOutOfBoundsException | NumberFormatException e){
+						logger.error("Cannot parse input line in input file " + path.toFile().getAbsolutePath() + " line: " + line);
+					}
+					return null;
+				});/*.sorted(new Comparator<MatrixEntry>() {
+
+					@Override
+					public int compare(MatrixEntry o1, MatrixEntry o2) {
+						int rowDiff = o1.getRow() - o2.getRow();
+						int colDif = o1.getCol() - o2.getCol();
+						return rowDiff == 0 ? colDif : rowDiff;
+					}
+				});*/
+				return DatatypeFactory.createSimpleSparseMatrix(result, matrixEntries);
+				
+				//	.parallel()
+/*					.forEach(line -> {
+						String[] split = line.trim().split(" ");
+						try{
+							result.insertValue(Integer.valueOf(split[0]),
+									Integer.valueOf(split[1]),
+									result.isOnesMatrix() ? 1 : Double.parseDouble(split[2]));
+						}catch(IndexOutOfBoundsException | NumberFormatException e){
+							logger.error("Cannot parse input line in input file " + path.toFile().getAbsolutePath() + " line: " + line);
+						}
+					});*/
+				
+			} catch (IOException e) {
+				logger.error("Cannot preparse input file " + path.toFile().getAbsolutePath(), e);
+			}
+		return null;
+	}	
+	
+/*	public Datatype parseInputFormPath(Path path)
 	{
 		logger.info("Starting input parsing for file " + path.toFile().getAbsolutePath());
 		Datatype result = preparse(path);
@@ -50,9 +107,9 @@ public class MMInputParser{
 				return null;
 			}
 		return result;
-	}
-	private Datatype preparse(Path path) {
-		Datatype result = null;
+	}*/
+	private MatrixInformation preparse(Path path) {
+		MatrixInformation result = null;
 		try(BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))){
 			boolean firstData = true;
 			boolean symetric = false, skew = false;
@@ -107,7 +164,7 @@ public class MMInputParser{
 				}
 				else
 				{
-					result = new GraphRepresentation(valuesS.length == 2, rows, cols, values, symetric, skew, true);
+					result = new MatrixInformation(symetric, rows, cols, values);
 					break;
 				}
 			}
@@ -127,7 +184,7 @@ public class MMInputParser{
 	
 	private static void parse(URI resource){
 		long time  = System.currentTimeMillis();
-		GraphRepresentation mr = (GraphRepresentation) new MMInputParser().parseInputFormURI(resource);
+		SparseMatrix mr = new MMInputParser().parseInputFromURI(resource);
 		logger.info("Took: " + (System.currentTimeMillis() - time));
 		logger.info(mr.toString() );
 	}
