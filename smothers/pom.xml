@@ -7,4 +7,11 @@
   </parent>
   <artifactId>smothers</artifactId>
   <name>Amg smoothers</name>
+  
+  <dependencies>
+      <dependency>
+    	<groupId>acc.edu.multigrid</groupId>
+    	<artifactId>datatypes</artifactId>
+    </dependency>
+  </dependencies>
 </project>
