@@ -1,36 +1,24 @@
-2017-07-27 15:27:35.681 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\amazon0505.mtx
-2017-07-27 15:27:39.099 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 1421ms
-2017-07-27 15:27:39.099 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 3420
-2017-07-27 15:27:39.099 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=410236, cols=410236, values=3356824]
-2017-07-27 15:27:39.100 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\as-Skitter.mtx
-2017-07-27 15:27:49.703 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 2313ms
-2017-07-27 15:27:49.704 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 10604
-2017-07-27 15:27:49.704 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=1696415, cols=1696415, values=11095298]
-2017-07-27 15:27:49.708 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\ca-GrQc.mtx
-2017-07-27 15:27:49.717 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 3ms
-2017-07-27 15:27:49.717 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 11
-2017-07-27 15:27:49.717 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=5242, cols=5242, values=14496]
-2017-07-27 15:27:49.717 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\cit-Patents.mtx
-2017-07-27 15:28:13.486 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 9316ms
-2017-07-27 15:28:13.487 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 23770
-2017-07-27 15:28:13.487 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=3774768, cols=3774768, values=16518948]
-2017-07-27 15:28:13.487 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\email-EuAll.mtx
-2017-07-27 15:28:13.958 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 84ms
-2017-07-27 15:28:13.958 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 471
-2017-07-27 15:28:13.958 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=265214, cols=265214, values=420045]
-2017-07-27 15:28:13.958 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\p2p-Gnutella30.mtx
-2017-07-27 15:28:14.019 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 25ms
-2017-07-27 15:28:14.019 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 61
-2017-07-27 15:28:14.019 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=36682, cols=36682, values=88328]
-2017-07-27 15:28:14.020 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\roadNet-TX.mtx
-2017-07-27 15:28:14.937 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 212ms
-2017-07-27 15:28:14.938 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 918
-2017-07-27 15:28:14.938 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=1393383, cols=1393383, values=1921660]
-2017-07-27 15:28:14.938 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\soc-LiveJournal1.mtx
-2017-07-27 15:31:40.887 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 23209ms
-2017-07-27 15:31:40.887 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 205949
-2017-07-27 15:31:40.887 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=4847571, cols=4847571, values=68993773]
-2017-07-27 15:31:40.888 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\wiki-Talk.mtx
-2017-07-27 15:31:43.448 [main] INFO  acc.edu.multigrid.amg.datatypes.concrete.SimpleArraySparseMatrix - Sorting values took: 1021ms
-2017-07-27 15:31:43.448 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 2561
-2017-07-27 15:31:43.448 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=2394385, cols=2394385, values=5021410]
+2017-08-02 14:49:31.153 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\amazon0505.mtx
+2017-08-02 14:49:33.232 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 2081
+2017-08-02 14:49:33.232 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=410236, cols=410236, values=3356824, symetric=false]
+2017-08-02 14:49:33.233 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\as-Skitter.mtx
+2017-08-02 14:49:53.660 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 20427
+2017-08-02 14:49:53.661 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=1696415, cols=1696415, values=22190596, symetric=true]
+2017-08-02 14:49:53.661 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\ca-GrQc.mtx
+2017-08-02 14:49:53.673 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 12
+2017-08-02 14:49:53.673 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=5242, cols=5242, values=28992, symetric=true]
+2017-08-02 14:49:53.673 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\cit-Patents.mtx
+2017-08-02 14:50:12.834 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 19161
+2017-08-02 14:50:12.834 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=3774768, cols=3774768, values=16518948, symetric=false]
+2017-08-02 14:50:12.834 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\email-EuAll.mtx
+2017-08-02 14:50:12.956 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 122
+2017-08-02 14:50:12.957 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=265214, cols=265214, values=420045, symetric=false]
+2017-08-02 14:50:12.957 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\p2p-Gnutella30.mtx
+2017-08-02 14:50:12.984 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 27
+2017-08-02 14:50:12.984 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=36682, cols=36682, values=88328, symetric=false]
+2017-08-02 14:50:12.985 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\roadNet-TX.mtx
+2017-08-02 14:50:14.550 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 1565
+2017-08-02 14:50:14.551 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=1393383, cols=1393383, values=3843320, symetric=true]
+2017-08-02 14:50:14.551 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Starting input parsing for file C:\final-proj\testMat\wiki-Talk.mtx
+2017-08-02 14:50:19.172 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - Took: 4621
+2017-08-02 14:50:19.172 [main] INFO  acc.edu.multigrid.amg.input.MMInputParser - SimpleArraySparseMatrix [rows=2394385, cols=2394385, values=5021410, symetric=false]

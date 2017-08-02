@@ -13,9 +13,13 @@ public class DatatypeFactory {
 	public static SparseMatrix createSimpleSparseMatrix(int rows, int cols, int values, boolean symetric, Stream<MatrixEntry> entryStream)
 	{
 		SimpleArraySparseMatrix result = new SimpleArraySparseMatrix(rows, cols, values, symetric);
-		OfInt indexIterator = IntStream.rangeClosed(1, values).iterator();
-		entryStream.forEach(val -> result.insertValue(val.getRow(), val.getCol(), val.getValue(), indexIterator.next()));
-		result.sortEntryArray();
+	//	OfInt indexIterator = IntStream.rangeClosed(1, values).iterator();
+		entryStream.parallel().forEach(val -> {
+			result.insertValue(val.getRow(), val.getCol(), val.getValue());
+			if(symetric)
+				result.insertValue(val.getCol(), val.getRow(), val.getValue());
+				});
+	//	result.sortEntryArray();
 		return result;
 	}
 	
