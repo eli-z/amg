@@ -13,5 +13,10 @@
     	<groupId>acc.edu.multigrid</groupId>
     	<artifactId>datatypes</artifactId>
     </dependency>
+    <dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

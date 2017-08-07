@@ -23,7 +23,9 @@ public class SimpleArraySparseMatrix implements SparseMatrix{
 	private int cols;
 	private int values;
 	private boolean symetric;
+	private boolean useZeroBasedIndexes;
 	private TreeSet<RowEntry>[] sparseMatrix;
+	
 	
 
 	
@@ -31,20 +33,19 @@ public class SimpleArraySparseMatrix implements SparseMatrix{
 	@SuppressWarnings("unchecked")
 	public SimpleArraySparseMatrix(int rows, int cols, int values, boolean symetric) {
 		super();
+		useZeroBasedIndexes = false;
 		this.rows = rows;
 		this.cols = cols;
 		this.symetric = symetric;
 		if(rows != cols && symetric)
 			logger.error("Non square matrix cannot be symmetric: rows {}, cols {}", rows, cols);
 		this.values = symetric ? values * 2 : values;
-//		rowArray = new int[values + 1];
-//		colArray = new int[values + 1];
-//		valueArray = new double[values + 1];
-//		entryArray = new ArrayList<>(values);
 		sparseMatrix = new TreeSet[rows + 1];
 		IntStream.rangeClosed(1, rows).parallel().forEach(index -> sparseMatrix[index] = new TreeSet<>(rowComparator));
 	}
 
+	
+	
 	public boolean isSymetric() {
 		return symetric;
 	}
@@ -85,12 +86,27 @@ public class SimpleArraySparseMatrix implements SparseMatrix{
 
 	@Override
 	public TreeSet<RowEntry> getMatrixRow(int row) {
+		if(useZeroBasedIndexes)
+			return sparseMatrix[row + 1];
 		return sparseMatrix[row];
 	}
 
 	@Override
 	public boolean hasValueAt(int row, int col) {
+		if(useZeroBasedIndexes)
+			return sparseMatrix[row + 1].contains(new RowEntry(col + 1, 0));
 		return sparseMatrix[row].contains(new RowEntry(col, 0));
 
+	}
+
+	@Override
+	public boolean isZeroBasedIndexes() {
+		return useZeroBasedIndexes;
+	}
+
+	@Override
+	public void honorZeroBasedIndexes() {
+		useZeroBasedIndexes = true;
+		
 	}
 }

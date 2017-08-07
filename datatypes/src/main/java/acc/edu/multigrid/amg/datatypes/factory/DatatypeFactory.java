@@ -27,4 +27,19 @@ public class DatatypeFactory {
 	{
 		return createSimpleSparseMatrix(mInformation.getRows(), mInformation.getColumns(), mInformation.getValues(), mInformation.isSymetric(), entryStream);
 	}
+	
+	public static SparseMatrix createSimpleSparseMatrix(double[][] matrix)
+	{
+		int values = 0;
+		for(int i = 0; i < matrix.length; i++)
+			for(int j = 0; j < matrix[0].length; j++)
+				if(matrix[i][j] != 0)
+					values++;
+		SimpleArraySparseMatrix result = new SimpleArraySparseMatrix(matrix.length, matrix[0].length, values, false);
+		for(int i = 0; i < matrix.length; i++)
+			for(int j = 0; j < matrix[0].length; j++)
+				if(matrix[i][j] != 0)
+					result.insertValue(i + 1, j + 1, matrix[i][j]);
+		return result;
+	}
 }
