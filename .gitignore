@@ -6,3 +6,4 @@ matrix-generators/.classpath
 input-parser/.classpath
 datatypes/.classpath
 input-parser/all.log
+*.log
