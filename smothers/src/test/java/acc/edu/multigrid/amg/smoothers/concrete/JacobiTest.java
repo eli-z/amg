@@ -21,7 +21,6 @@ public class JacobiTest {
 				{0, 3, -1, 8}
 		};
 		testMatrix = DatatypeFactory.createSimpleSparseMatrix(test);
-		testMatrix.honorZeroBasedIndexes();
 		bVec = new double[]{6,25,-11,15};
 		xVec = new double[4];
 	}

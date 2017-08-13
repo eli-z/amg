@@ -39,7 +39,7 @@ public class DatatypeFactory {
 		for(int i = 0; i < matrix.length; i++)
 			for(int j = 0; j < matrix[0].length; j++)
 				if(matrix[i][j] != 0)
-					result.insertValue(i + 1, j + 1, matrix[i][j]);
+					result.insertValue(i, j, matrix[i][j]);
 		return result;
 	}
 }

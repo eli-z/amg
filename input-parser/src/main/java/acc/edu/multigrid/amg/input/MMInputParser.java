@@ -31,23 +31,24 @@ public class MMInputParser{
 		return parseInputFormPath(Paths.get(uri));
 	}
 */
-	public SparseMatrix parseInputFromURI(URI uri){
-		return parseInputFormPath(Paths.get(uri));
+	public SparseMatrix parseInputFromURI(URI uri, boolean zeroBased){
+		return parseInputFormPath(Paths.get(uri), zeroBased);
 	}
 	
 	
-	public SparseMatrix parseInputFormPath(Path path)
+	public SparseMatrix parseInputFormPath(Path path, boolean zeroBased)
 	{
 		logger.info("Starting input parsing for file " + path.toFile().getAbsolutePath());
 		MatrixInformation result = preparse(path);
+		int diff = zeroBased ? 0 : 1;
 		if(result != null)
 			try(Stream<String> lines = Files.lines(path)){
 				String dataLine = result.getRows() + " " + result.getColumns() + " " + result.getValues();
 				Stream<MatrixEntry> matrixEntries = lines.filter(line -> !line.startsWith("%") && !line.equals(dataLine)).map(line -> {
 					String[] split = line.trim().split(" ");
 					try{
-						return new MatrixEntry(Integer.valueOf(split[0]),
-								Integer.valueOf(split[1]),
+						return new MatrixEntry(Integer.valueOf(split[0]) - diff,
+								Integer.valueOf(split[1]) - diff,
 								split.length == 2 ? 1d : Double.parseDouble(split[2]));
 					}catch(IndexOutOfBoundsException | NumberFormatException e){
 						logger.error("Cannot parse input line in input file " + path.toFile().getAbsolutePath() + " line: " + line);
@@ -184,7 +185,7 @@ public class MMInputParser{
 	
 	private static void parse(URI resource){
 		long time  = System.currentTimeMillis();
-		SparseMatrix mr = new MMInputParser().parseInputFromURI(resource);
+		SparseMatrix mr = new MMInputParser().parseInputFromURI(resource, false);
 		logger.info("Took: " + (System.currentTimeMillis() - time));
 		logger.info(mr.toString() );
 	}
