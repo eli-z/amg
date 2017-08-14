@@ -22,20 +22,23 @@ public class GaussSiedel implements Smoother {
 		Set<Integer> white = new HashSet<>();
 		Set<Integer> ignoreList = new HashSet<>();
 		TreeSet<RowEntry> row;
-		for(int i = 0; i < matrix.getRowsCount(); i++)
+		while(ignoreList.size() < matrix.getRowsCount())
 		{
-			row = matrix.getMatrixRow(i);
-			if(!white.contains(i))
+			for(int i = 0; i < matrix.getRowsCount(); i++)
 			{
-				int current = i;
-				black.add(i);
-				row.stream().filter(item -> item.getCol() != current)
-					.forEach(item -> {
-						if(black.contains(item.getCol()))
-							black.remove(item.getCol());
-						white.add(item.getCol());
-					
-				});
+				row = matrix.getMatrixRow(i);
+				if(!white.contains(i))
+				{
+					int current = i;
+					black.add(i);
+					row.stream().filter(item -> item.getCol() != current)
+						.forEach(item -> {
+							if(black.contains(item.getCol()))
+								black.remove(item.getCol());
+							white.add(item.getCol());
+						
+					});
+				}
 			}
 //			else if(!black.contains(i)){
 				
