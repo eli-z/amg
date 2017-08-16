@@ -48,5 +48,11 @@ public class JacobiTest {
 		assertArrayEquals(expected, result, 0.001);
 		
 	}
-
+	
+	@Test
+	public void testIterative() {
+		double[] expected = new double[]{0.98899, 2.0114, -1.0102, 1.02135};
+		double[] result = new JacobiSmoother().smooth(testMatrix, bVec, xVec, 5);
+		assertArrayEquals(expected, result, 0.001);
+	}
 }
