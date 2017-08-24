@@ -52,6 +52,7 @@
 		<module>smothers</module>
 		<module>datatypes</module>
 		<module>matrix-generators</module>
+		<module>grid-operators</module>
 	</modules>
 	
 	<build>

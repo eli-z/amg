@@ -7,3 +7,13 @@ input-parser/.classpath
 datatypes/.classpath
 input-parser/all.log
 *.log
+grid-operators/.classpath
+grid-operators/target/classes/META-INF/MANIFEST.MF
+grid-operators/target/classes/META-INF/maven/acc.edu.multigrid/grid-operators/pom.properties
+grid-operators/target/classes/META-INF/maven/acc.edu.multigrid/grid-operators/pom.xml
+grid-operators/target/classes/META-INF/maven/hz/hz1/pom.properties
+grid-operators/target/classes/META-INF/maven/hz/hz1/pom.xml
+grid-operators/target/grid-operators-0.0.1-SNAPSHOT.jar
+grid-operators/target/maven-archiver/pom.properties
+grid-operators/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+grid-operators/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
